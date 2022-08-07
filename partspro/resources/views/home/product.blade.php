@@ -13,12 +13,31 @@
                   <div class="box">
                      <div class="option_container">
                         <div class="options">
-                           <a href="" class="option1">
-                           Men's Shirt
+                           <a href="{{url('product_details',$products->id)}} " class="option1">
+                           Product Details
                            </a>
-                           <a href="" class="option2">
-                           Buy Now
-                           </a>
+
+
+
+                           <form action="{{url('add_cart',$products->id)}}" method="Post">
+
+                              @csrf
+
+                              <div class="row">
+
+                                 <div class="col-md-4" style="padding: 25px">
+                                 <input type="number" name="quantity" value="1" min="1" style="width: 100px">
+                              </div>
+
+                              <div class="col-md-4" style="padding-top : 20px">
+                                 <input type="submit" value="Add To Cart">
+
+                                 </div>
+                              
+                              
+                              </div>
+
+                           </form>
                         </div>
                      </div>
                      <div class="img-box">
@@ -27,6 +46,7 @@
                      <div class="detail-box">
                         <h5>
                            {{$products->title}}
+
                         </h5>
 
                         @if($products->discount_price!=null)

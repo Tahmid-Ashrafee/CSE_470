@@ -91,6 +91,30 @@ class HomeController extends Controller
         return view('home.product_details',compact('product'));
     }
 
+    public function show_cart(){
+
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+        
+        $id=Auth::user()->id;
+        $cart=cart::where('user_id','=',$id)->get();
+        return view('home.showcart',compact(('cart')));
+
+    }
+    else
+    {
+        return redirect('login');
+    }
+
+    }
+    public function remove_cart($id)
+    {
+        $cart=cart::find($id);
+        $cart->delete();
+        return redirect()->back();
+    }
+
 
 
 

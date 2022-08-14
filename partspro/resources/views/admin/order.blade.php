@@ -7,7 +7,7 @@
    	.center
    	{
    		margin: auto;
-   		width: 70%;
+   		width: 100%;
    		border: 2px solid white;
    		text-align: center;
         margin-top: 40px;
@@ -62,42 +62,46 @@
 
             @endif
 
-          	<h1 class="font_size">Show Product</h1>
+          	<h1 class="font_size">Order List</h1>
 
           	<table class="center">
           		<tr class="th_color">
+          			<th class="th_d">Name</th>
+          			<th class="th_d">Email</th>
+          			<th class="th_d">Phone</th>
+          			<th class="th_d">Address</th>
           			<th class="th_d">Product Title</th>
-          			<th class="th_d">Description</th>
-          			<th class="th_d">Image</th>
-          			<th class="th_d">Category</th>
           			<th class="th_d">Quantity</th>
           			<th class="th_d">Price</th>
-          			<th class="th_d">Discount Price</th>
-          			<th class="th_d">Edit</th>
-          			<th class="th_d">Delete</th>
+          			<th class="th_d">Payment Status</th>
+          			<th class="th_d">Delivery Status</th>
+          			<th class="th_d">Image</th>
+          			<th class="th_d">Action</th>
           			
 
           		</tr>
 
-          		@foreach($product as $product)
+          		@foreach($order as $order)
           		<tr>
-          			<td>{{$product->title}}</td>
-          			<td>{{$product->description}}</td>
+          			<td>{{$order->name}}</td>
+          			<td>{{$order->email}}</td>
           			
-          			<td>{{$product->category}}</td>
-          			<td>{{$product->quantity}}</td>
-          			<td>{{$product->price}}</td>
-          			<td>{{$product->discount_price}}</td>
-          			<td>
-          				<img class="image_size" src="/product/{{$product->image}}">
-          			</td>
+          			<td>{{$order->phone}}</td>
+          			<td>{{$order->address}}</td>
+          			<td>{{$order->product_title}}</td>
+          			<td>{{$order->quantity}}</td>
+          			<td>{{$order->price}}</td>
+          			<td>{{$order->payment_status}}</td>
+          			<td>{{$order->delivery_status}}</td>
 
           			<td>
-          				<a class="btn btn-primary" href="{{url('update_product',$product->id)}}">Edit</a>
+          				<img class="image_size" src="/product/{{$order->image}}">
           			</td>
+
+          			
           			
           			<td>
-          				<a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{url('delete_product',$product->id)}}">Delete</a>
+          				<a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{url('delete_order',$order->id)}}">Cancel Order</a>
           			</td>
           			
           		</tr>

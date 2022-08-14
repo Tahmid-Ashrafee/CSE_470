@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Order;
+
+
 
 class AdminController extends Controller
 {
@@ -105,7 +108,28 @@ class AdminController extends Controller
         $product->save();
         return redirect()->back()->with('message','Product Updated Successfully');
 
-    }    
+    }   
+
+    public function order(){
+
+        $order=order::all();
+        return view('admin.order',compact('order'));
+
+
+
+    } 
+    public function delete_order($id)
+    {
+        $order=order::find($id);
+        $order->delete();
+
+        
+
+        return redirect()->back()->with('message','Product Deleted Successfully');
+    }
+
+
+
 
 
 }

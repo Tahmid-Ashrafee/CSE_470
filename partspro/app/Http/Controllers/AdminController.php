@@ -128,6 +128,18 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Product Deleted Successfully');
     }
 
+    public function delivered($id)
+    {
+        $order=order::find($id);
+        $order->delivery_status="Delivered";
+        $order->payment_status="Paid";
+        $order->save();
+
+        
+
+        return redirect()->back();
+    }
+
 
 
 

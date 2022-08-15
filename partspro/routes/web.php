@@ -44,6 +44,7 @@ route::get('/update_product/{id}', [AdminController::class,'update_product']);
 route::post('/update_product_confirm/{id}', [AdminController::class,'update_product_confirm']);
 
 route::get('/order', [AdminController::class,'order']);
+route::get('/delivered/{id}', [AdminController::class,'delivered']);
 
 
 
@@ -61,6 +62,6 @@ route::get('/cash_order', [HomeController::class,'cash_order']);
 route::get('/show_order', [HomeController::class,'show_order']);
 
 route::get('/cancel_order/{id}', [HomeController::class,'cancel_order']);
-
+route::get('/product_search', [HomeController::class,'product_search']);
 
 

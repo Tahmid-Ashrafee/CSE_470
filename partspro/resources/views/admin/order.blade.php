@@ -76,6 +76,7 @@
           			<th class="th_d">Payment Status</th>
           			<th class="th_d">Delivery Status</th>
           			<th class="th_d">Image</th>
+                <th class="th_d">Delivered</th>
           			<th class="th_d">Action</th>
           			
 
@@ -97,6 +98,15 @@
           			<td>
           				<img class="image_size" src="/product/{{$order->image}}">
           			</td>
+                <td>
+                  @if($order->delivery_status=='processing')
+                  <a class="btn btn-primary" onclick="return confirm('Are you sure the product is delivered?')"href="{{url('delivered',$order->id)}}">Delivered</a>
+
+                  @else
+                  <p style="color: blue">Delivered</p>
+
+                  @endif
+                </td>
 
           			
           			

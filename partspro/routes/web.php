@@ -46,6 +46,9 @@ route::post('/update_product_confirm/{id}', [AdminController::class,'update_prod
 route::get('/order', [AdminController::class,'order']);
 route::get('/delivered/{id}', [AdminController::class,'delivered']);
 
+route::get('/show_user', [AdminController::class,'show_user']);
+route::get('/delete_user/{id}', [AdminController::class,'delete_user']);
+
 
 
 

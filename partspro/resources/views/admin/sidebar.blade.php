@@ -101,11 +101,19 @@
           </li>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('show_user')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title"> Userlist </span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('user')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
-              <span class="menu-title"> Customers </span>
+              <span class="menu-title"> Delivered  </span>
             </a>
           </li>
           

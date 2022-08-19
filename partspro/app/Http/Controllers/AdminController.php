@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\User;
 
 
 
@@ -138,6 +139,19 @@ class AdminController extends Controller
         
 
         return redirect()->back();
+    }
+    public function show_user()
+    {
+        $user=user::all();
+        // return view('admin.show_product');
+        return view('admin.userlist',compact('user'));
+    }
+    public function delete_user($id)
+    {
+        $user=user::find($id);
+        $user->delete();
+
+        return redirect()->back()->with('message','User Deleted Successfully');
     }
 
 

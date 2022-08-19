@@ -188,6 +188,14 @@ class HomeController extends Controller
         return view('home.userpage', compact('product'));
     }
 
+    public function products()
+    {
+      $product=Product::paginate(3);
+     
+      return view('home.all_product', compact('product'));
+    }
+    
+
 
       
 

@@ -46,8 +46,25 @@ route::post('/update_product_confirm/{id}', [AdminController::class,'update_prod
 route::get('/order', [AdminController::class,'order']);
 route::get('/delivered/{id}', [AdminController::class,'delivered']);
 
+route::get('/delivered_order_list', [AdminController::class,'delivered_order_list']);
+
 route::get('/show_user', [AdminController::class,'show_user']);
 route::get('/delete_user/{id}', [AdminController::class,'delete_user']);
+
+route::get('/update_user/{id}', [AdminController::class,'update_user']);
+
+route::post('/update_user_confirm/{id}', [AdminController::class,'update_user_confirm']);
+
+route::get('/update_admin/{id}', [AdminController::class,'update_admin']);
+
+route::get('/show_admin', [AdminController::class,'show_admin']);
+
+
+
+
+
+
+
 
 
 
@@ -66,5 +83,6 @@ route::get('/show_order', [HomeController::class,'show_order']);
 
 route::get('/cancel_order/{id}', [HomeController::class,'cancel_order']);
 route::get('/product_search', [HomeController::class,'product_search']);
+route::get('/products', [HomeController::class,'products']);
 
 

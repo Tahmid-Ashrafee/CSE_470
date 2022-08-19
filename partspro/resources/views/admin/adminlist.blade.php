@@ -77,11 +77,11 @@
 	          			<th class="th_d">Address</th>
 	          			<th class="th_d">Action</th>
 	          			<th class="th_d">Action</th>
-	          			<th  class="th_b">Action</th>
+	          			
 	          		</tr>
 
 	          		@foreach($user as $user)
-	          		@if($user->usertype=='0')
+	          		@if($user->usertype=='1')
 	     			<tr>
 		     			<td class="th_b">{{$user->id}} </td>
 		     			<td class="th_b">{{$user->name}}</td>
@@ -97,9 +97,7 @@
       					<td class="th_b">
           				<a class="btn btn-primary" href="{{url('update_user',$user->id)}}">Edit</a>
           				</td>
-          				<td class="th_b">
-          				<a class="btn btn-success" href="{{url('update_admin',$user->id)}}">Make Admin</a>
-          				</td>
+          				
           			
 
 	     			</tr>

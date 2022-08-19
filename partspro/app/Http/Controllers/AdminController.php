@@ -146,6 +146,20 @@ class AdminController extends Controller
         // return view('admin.show_product');
         return view('admin.userlist',compact('user'));
     }
+
+    public function show_admin()
+    {
+        $user=user::all();
+        // return view('admin.show_product');
+        return view('admin.adminlist',compact('user'));
+    }
+
+    public function delivered_order_list()
+    {
+         $order=order::all();
+        // return view('admin.show_product');
+        return view('admin.delivered_order',compact('order'));
+    }
     public function delete_user($id)
     {
         $user=user::find($id);
@@ -153,6 +167,48 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message','User Deleted Successfully');
     }
+
+    public function update_user($id)
+    {
+        $user=user::find($id);
+        
+
+        return view('admin.update_user',compact('user'));
+
+    }
+
+    public function update_user_confirm(Request $request,$id)
+    {
+        $user=user::find($id);
+
+        $user->name=$request->Name;
+        $user->email=$request->Email;
+        $user->phone=$request->Phone;
+        $user->address=$request->Address;
+    
+
+        $user->save();
+
+        return redirect()->back()->with('message','User Details Updated  Successfully');
+
+    }
+
+    public function update_admin($id)
+    {
+        $user=user::find($id);
+         $user->usertype="1";
+
+        $user->save();
+        return redirect()->back()->with('message','User Details Updated Successfully');
+
+    }
+        
+
+        
+
+
+
+    
 
 
 

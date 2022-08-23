@@ -18,14 +18,25 @@
       color: black;
     }
 
-    .center{
+   .center{
       margin: auto;
       width: 50%;
       text-align: center;
       margin-top: 30px;
       border: 3px solid white;
+      font-size: 20px;
+      padding-bottom: 40px;
 
-    }
+   }
+  .th_d
+  {
+    padding: 30px;
+    padding-top: 20px;
+  }
+  .th_color
+  {
+    background: red; 
+  }
   </style>
 
   </head>
@@ -70,9 +81,9 @@
             </div>
 
             <table class="center">
-              <tr>
-                <td>Category Name</td>
-                <td>Action</td>
+              <tr class="th_color">
+                <td class="th_d">Category Name</td>
+                <td class="th_d">Action</td>
               </tr>
 
               @foreach($data as $data)

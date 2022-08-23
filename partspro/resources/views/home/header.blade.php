@@ -15,9 +15,9 @@
                            <a class="nav-link" href="{{url('products')}}">Products</a>
                         </li>
                        
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
+                        </li> -->
 
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('show_cart')}}">Cart</a>
@@ -27,11 +27,11 @@
                            <a class="nav-link" href="{{url('show_order')}}">Order</a>
                         </li>
 
-	                      <form class="form-inline">
+	                      <!-- <form class="form-inline">
 	                       <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
 	                       <i class="fa fa-search" aria-hidden="true"></i>
 	                       </button>
-	                    </form>
+	                    </form> -->
 
                        @if (Route::has('login'))
 

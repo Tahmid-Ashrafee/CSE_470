@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 
@@ -38,54 +39,135 @@ class HomeController extends Controller
 
 
 
-    public function add_cart(Request $request,$id)
+    // public function add_cart(Request $request,$id)
+    // {
+    //     if(Auth::id())
+    //     {
+    //        $user=Auth::user();
+
+    //        $product=product::find($id);
+
+    //        $cart=new cart;
+
+    //        $cart->name=$user->name;
+    //        $cart->email=$user->email;
+    //        $cart->phone=$user->phone;
+    //        $cart->address=$user->address;
+    //        $cart->user_id=$user->id;
+    //        $cart->product_title=$product->title;
+
+    //        if($product->discount_price)
+    //        {
+    //             $cart->price=$product->discount_price * $request->quantity;
+
+    //        }
+    //        else
+    //        {
+
+           
+    //             $cart->price=$product->price * $request->quantity;
+
+    //        }
+           
+    //        $cart->image=$product->image;
+    //        $cart->product_id=$product->id;
+
+    //        $cart->quantity=$request->quantity;
+    //        $cart->save();
+    //        return redirect()->back();
+
+
+
+
+    //     }
+
+    //     else
+    //     {
+    //         return redirect('login');
+    //     }
+
+    public function add_cart(Request $request, $id)
     {
         if(Auth::id())
         {
            $user=Auth::user();
+           $userid= $user->id;
 
-           $product=product::find($id);
+           $product=Product::find($id);
 
-           $cart=new cart;
-
-           $cart->name=$user->name;
-           $cart->email=$user->email;
-           $cart->phone=$user->phone;
-           $cart->address=$user->address;
-           $cart->user_id=$user->id;
-           $cart->product_title=$product->title;
-
-           if($product->discount_price)
-           {
-                $cart->price=$product->discount_price * $request->quantity;
-
-           }
-           else
-           {
-
-           
-                $cart->price=$product->price * $request->quantity;
-
-           }
-           
-           $cart->image=$product->image;
-           $cart->product_id=$product->id;
-
-           $cart->quantity=$request->quantity;
-           $cart->save();
-           return redirect()->back();
+           $product_exist_id=cart::where('product_id','=',$id)->where('user_id','=',$userid)->get('id')->first();
 
 
+          if ($product->quantity >= $request->quantity)
+          {
+              if ($product_exist_id) 
+               {
+                    $cart=cart::find($product_exist_id)->first();
+                    $quantity=$cart->quantity;
+                    $cart->quantity = $quantity + $request->quantity;
 
+                    if($product->discount_price)
+                     {
+                          $cart->price= $product->discount_price * $cart->quantity;
+                     }
+                     else
+                     {
+                          $cart->price= $product->price * $cart->quantity;
+                     }
+
+                    $cart->save();
+
+                    $product->quantity = Product::where('id','=',$id)->decrement('quantity',$request->quantity); ///
+
+                    return redirect()->back()->with('message','Product Added Sucessfully!');
+
+               }
+               else
+               {
+                     $cart=new cart;
+
+                     $cart->name=$user->name;
+                     $cart->email=$user->email;
+                     $cart->phone=$user->phone;
+                     $cart->address=$user->address;
+                     $cart->user_id=$user->id;
+                     $cart->product_title=$product->title;
+
+                     if($product->discount_price)
+                     {
+                          $cart->price=$product->discount_price * $request->quantity;
+                     }
+                     else
+                     {
+                          $cart->price=$product->price * $request->quantity;
+                     }
+                     
+                     $cart->image=$product->image;
+                     $cart->product_id=$product->id;
+
+                     $cart->quantity=$request->quantity;
+                     $cart->save();
+
+                     $product->quantity = Product::where('id','=',$id)->decrement('quantity',$request->quantity); ///
+
+                     return redirect()->back()->with('message','Product Added Sucessfully!');
+               }
+
+          }
+          
+          else
+          {
+            return redirect()->back()->with('message','Not enough product available!');
+          }
 
         }
-
         else
         {
             return redirect('login');
         }
-
     }
+
+    
     public function product_details($id)
     {
         $product=product::find($id);

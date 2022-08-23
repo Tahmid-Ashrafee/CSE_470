@@ -11,7 +11,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: #0c0c0c;
-  background-color: #ffffff;
+  background-color: #f0f0f0; 
   overflow-x: hidden;
 }
 
@@ -58,23 +58,24 @@ h2 {
 }
 
 .heading_container h2 {
-    position: relative;
-    margin-bottom: 0;
-    font-size: 3.5rem;
+    position: left;
+    color: #ffffff;
+    margin-top: 250px;
+    font-size: 4rem;
     font-weight: bold;
 }
 
 .heading_container h2::after {
     content: "";
     display: block;
-    width: 70px;
+    width: 50px;
     height: 5px;
     background: #f7444e;
     margin: 10px auto 10px;
 }
 
 .heading_container h2 span {
-  color: #f7444e;
+  color: #3c3c3c;
 }
 
 .heading_container p {
@@ -83,7 +84,7 @@ h2 {
 }
 
 .heading_container.heading_center {
-  -webkit-box-align: center;
+  -webkit-box-align: absolute;
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
@@ -290,7 +291,7 @@ a:focus {
 
 .slider_section .detail-box p {
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 1.5rem;
 }
 
@@ -368,12 +369,12 @@ a:focus {
     position: relative;
     margin-top: 25px;
     padding: 35px 35px;
-    background-color: #f7f8f9;
+    background-color: #f0f0f0;
     -webkit-transition: all .3s;
     transition: all .3s;
     overflow: hidden;
     box-shadow: 5px 5px 5px -5px rgba(0,0,0,.2);
-    border: solid #fff 10px;
+    border: solid #000000 3px;
 }
 
 .product_section .box .img-box {
@@ -573,17 +574,17 @@ a:focus {
 }
 
 .why_section .box {
-    text-align: center;
-    margin-top: 45px;
-    background-color: #002c3e;
-    padding: 45px 50px;
-    border-radius: 5px;
+    text-align: relative;
+    margin-top: 20px;
+    background-color: #3c3c3c;
+    padding: 25px 15px;
+    border-radius: 3px;
     color: #ffffff;
 }
 
 .detail-box h5 {
     font-size: 21px;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .remove_line_bt h2::after {
@@ -591,11 +592,11 @@ a:focus {
 }
 
 .why_section .box .img-box {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .why_section .box .img-box svg {
-  width: 55px;
+  width: 45px;
   height: auto;
   fill: #ffffff;
 }

@@ -11,7 +11,7 @@
       <meta name="description" content="" />
       <meta name="author" content="" />
       <link rel="shortcut icon" href="images/favicon.png" type="">
-      <title>Famms - Fashion HTML Template</title>
+      <title>Online Car-Parts Station</title>
       <!-- bootstrap core css -->
       <link rel="stylesheet" type="text/css" href="home/css/bootstrap.css" />
       <!-- font awesome style -->
@@ -20,6 +20,7 @@
       <link href="home/css/style.css" rel="stylesheet" />
       <!-- responsive style -->
       <link href="home/css/responsive.css" rel="stylesheet" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
       <style type="text/css">
    	.center
@@ -53,6 +54,9 @@
 	</style>
    </head>
    <body>
+
+    @include('sweetalert::alert')
+
       <div class="hero_area">
          <!-- header section strats -->
          @include('home.header')
@@ -71,6 +75,7 @@
           			<th class="th_d">Delivery Status</th>
           			<th class="th_d">Image</th>
           			<th class="th_d">Action</th>
+                <th class="th_d">Action</th>
           			
 
           		</tr>
@@ -100,6 +105,10 @@
 
           				@endif
 
+                <td>
+                  <a class="btn btn-danger" onclick="confirmation(event)"  href="">Contact Support </a>
+                </td>
+
           			</td>
           			
           		</tr>
@@ -115,6 +124,35 @@
 
 
       </div>
+
+      <script>
+      function confirmation(ev) {
+        ev.preventDefault();
+        var urlToRedirect = ev.currentTarget.getAttribute('href');  
+        console.log(urlToRedirect); 
+        swal({
+            title: "Are you facing any problem with your order?",
+            text: "Please call on the given number to directly seek solution!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willCancel) => {
+            if (willCancel) {
+
+
+                 
+                window.location.href = urlToRedirect;
+               
+            }  
+
+
+        });
+
+        
+    }
+</script>
+
 
       <!-- jQery -->
       <script src="js/jquery-3.4.1.min.js"></script>

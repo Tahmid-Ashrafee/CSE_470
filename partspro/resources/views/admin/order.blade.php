@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+
+
    @include('admin.css')
    <style type="text/css">
    	.center
@@ -78,6 +80,7 @@
           			<th class="th_d">Image</th>
                 <th class="th_d">Delivered</th>
           			<th class="th_d">Action</th>
+               
           			
 
           		</tr>
@@ -113,6 +116,8 @@
           			<td>
           				<a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{url('delete_order',$order->id)}}">Cancel Order</a>
           			</td>
+
+                
           			
           		</tr>
 
@@ -127,6 +132,8 @@
 
           </div>
       </div>
+
+      
     @include('admin.script')
     <!-- End custom js for this page -->
   </body>

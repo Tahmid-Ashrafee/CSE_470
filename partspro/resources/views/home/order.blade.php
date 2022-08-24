@@ -132,7 +132,7 @@
         console.log(urlToRedirect); 
         swal({
             title: "Are you facing any problem with your order?",
-            text: "Please call on the given number to directly seek solution!",
+            text: "Please call on the given number to directly seek solution!  +8801712345678 ",
             icon: "warning",
             buttons: true,
             dangerMode: true,

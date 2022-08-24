@@ -60,7 +60,7 @@ h2 {
 .heading_container h2 {
     position: left;
     color: #ffffff;
-    margin-top: 250px;
+    margin-top: 40px;
     font-size: 4rem;
     font-weight: bold;
 }
@@ -362,7 +362,7 @@ a:focus {
 }
 
 .product_section .heading_container {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .product_section .box {
